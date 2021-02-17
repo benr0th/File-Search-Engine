@@ -8,6 +8,7 @@ sg.ChangeLookAndFeel('Dark')
 menu_def = [['&Help', '&About...']]
 right_click_menu = ['Right', ['&Explore', 'Close']]
 
+
 class Gui:
     def __init__(self):
         self.layout = [[sg.Menu(menu_def)],
@@ -81,11 +82,6 @@ class SearchEngine:
                 else:
                     continue
 
-        # save search results to file
-        with open('search_results.txt', 'w', encoding='utf-8') as f:
-            for row in self.results:
-                f.write(row + '\n')
-
 
 def main():
     g = Gui()
@@ -135,6 +131,8 @@ def main():
             print()
             print('>> There were {:,d} matches out of {:,d} records searched.'.format(s.matches, s.records))
             print()
+        else:
+            continue
 
 
 main()
